@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 const Home = ({posts})=>{
-    console.log("Rendering Home, posts:", posts);
     return (
         <main className="Home">
             <ul>

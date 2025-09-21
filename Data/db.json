@@ -1,0 +1,13 @@
+{
+  "posts": [
+    {
+      "id": "3"
+    },
+    {
+      "id": "5",
+      "title": "Three key feature of redux",
+      "date": "September 17,2025 01:37:12",
+      "body": "1. Single source of truth  : The entire state of the app is stored in single store.\n2. State is read only\n3.Changes are made with pure functions"
+    }
+  ]
+}

@@ -1,13 +1,455 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 16px;
 }
+
+body {
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  background-color: #efefef;
+}
+
+#root {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  width: 100%;
+  max-width: 800px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  border: 1px solid #333;
+  overflow-y: auto;
+  box-shadow: 0px 0px 15px gray;
+}
+
+.Header, .Footer {
+  width: 100%;
+  background-color: #66d8f5;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Header h1 {
+  font-size: 1.5rem;
+}
+
+.Header svg {
+  font-size: 2rem;
+}
+
+.Footer {
+  padding: 0.75rem;
+  display: grid;
+  place-content: center;
+}
+
+.Nav {
+  width: 100%;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.searchForm {
+  width: 80%;
+  padding: 1rem 0 0 0.75rem;
+}
+
+.searchForm input[type="text"] {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+.searchForm label {
+  position: absolute;
+  left: -99999px;
+}
+
+.Nav ul {
+  color: #fff;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.Nav li {
+  padding: 1rem;
+}
+
+.Nav li:hover, 
+.Nav li:focus {
+  padding: 1rem;
+}
+
+.Nav li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.Nav li:hover, 
+.Nav li:focus, 
+.Nav li:hover a, 
+.Nav li:focus a  {
+  background-color: #eee;
+  color: #333;
+}
+
+.Nav li:hover a, 
+.Nav li:focus a {
+  cursor: pointer;
+}
+
+.Home, .NewPost, .PostPage, .About, .Missing {
+  width: 100%;
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+ul {
+  list-style-type: none;
+}
+.post {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid lightgray;
+   text-align: left; 
+}
+.loginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f4f6f9;
+}
+
+.loginCard {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 320px;
+  text-align: center;
+}
+
+.loginCard h1 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.loginCard p {
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+
+.loginCard label {
+  display: block;
+  text-align: left;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.loginCard input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.signInButton {
+  width: 100%;
+  padding: 0.75rem;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.signInButton:hover {
+  background: #0056b3;
+}
+
+.extras {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.extras a {
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: #007BFF;
+}
+
+.extras a:hover {
+  text-decoration: underline;
+}
+
+.Home .post a {
+  text-decoration: none;
+  color:navy
+}
+
+.Home .post a, 
+.Home .post a:visited {
+  color: #000;
+}
+
+.post:first-child {
+  margin-top: 0;
+}
+
+.post:last-child {
+  border-bottom: none;
+}
+
+.postDate {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.postBody {
+  margin: 1rem 0;
+}
+
+.newPostForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.newPostForm label {
+  margin-top: 1rem;
+}
+
+.newPostForm input[type='text'], 
+.newPostForm textarea {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  margin-right: 0.25rem;
+  outline: none;
+}
+
+.newPostForm textarea {
+  min-height: 50px; /* instead of fixed height */
+  resize: vertical;  /* allow user to expand if needed */
+}
+
+.newPostForm button {
+  margin-top: 1rem;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 10px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.Missing h2, .PostPage h2, .About p,
+.Missing p, .PostPage p {
+  margin-bottom: 1rem;
+}
+
+.PostPage button {
+  height: 48px;
+  min-width: 48px;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+ 
+  color: #fff;
+  cursor: pointer;
+}
+.deleteButton{
+ background-color: red;
+
+}
+
+.editButton{
+ background-color: green;
+ margin-right:2%
+}
+.statusMsg {
+  margin-top: 2rem;
+}
+
+@media only screen and (min-width: 610px) {
+  html {
+    font-size: 22px;
+  }
+
+  .Header h1 {
+    font-size: 2rem;
+  }
+
+  .Nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Nav ul {
+    text-align: right;
+  }
+
+  .Nav li:hover, 
+  .Nav li:focus, 
+  .Nav li:hover a, 
+  .Nav li:focus a  {
+    background-color: #eee;
+    color: #333;
+  }
+
+  .searchForm {
+    width: 40%;
+    padding: .5rem 0;
+  }
+ 
+  .searchForm input[type="text"] {
+    margin-left: 0.5rem;
+  }
+
+  .newPostForm textarea {
+    height: 300px;
+  }
+}
+
+/* CreateAccount styles - paste into index.css */
+
+.create-account-container {
+  max-width: 520px;
+  margin: 36px auto;
+  padding: 18px;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+  border-radius: 8px;
+  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.create-account-form h2 {
+  margin: 0 0 12px;
+  font-size: 1.4rem;
+  color: #0b3a66;
+  text-align: center;
+}
+
+.create-account-form label {
+  display: block;
+  margin: 10px 0 6px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.create-account-form input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d7de;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: border-color .15s, box-shadow .15s;
+}
+
+.create-account-form input:focus {
+  outline: none;
+  border-color: #5aa0ff;
+  box-shadow: 0 0 0 3px rgba(90,160,255,0.12);
+}
+
+.name-row,
+.password-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-error {
+  background: #ffe6e6;
+  color: #a12b2b;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.form-success {
+  background: #e7f8ee;
+  color: #14632a;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 10px 12px;
+  background: #0b76ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform .08s ease, box-shadow .08s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(11,118,255,0.18);
+}
+
+@media (max-width: 520px) {
+  .name-row, .password-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media only screen and (min-width: 992px) {
+
+  .Header svg {
+    font-size: 3rem;
+  }
+
+}
+
